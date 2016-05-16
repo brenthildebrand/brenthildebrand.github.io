@@ -1,4 +1,4 @@
 Graphic design portfolio
 ========================
 
-<a href="bhildebrand.com">Visit here</a>.
+<a href="http://www.bhildebrand.com/">Visit here</a>.
