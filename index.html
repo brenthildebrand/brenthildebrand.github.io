@@ -17,7 +17,10 @@
     $(document).ready(function(){
 
       if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        $("body").html("");
+        //$(".container").remove();
+        $("#q").css({"width":"100%","text-align":"center","font-size":"40px", "position":"absolute","margin-top":"20px"});
+        $(".box").css({"width":"80%","margin-left":"0","font-size":"40px", "position":"absolute", "height":"40%", "left":"8.5%","margin-top":"20px","padding-top":"80px"});
+        $("#x").css({"right":"40px", "top":"40px"});
         $("body").append("<img class ='mobile-image' src='images/4.jpg' width='900'><br>");
         $("body").append("<img class ='mobile-image' src='images/Cowboy1.jpg' width='900'><br>");
         $("body").append("<img class ='mobile-image' src='images/Chair1.png' width='900'><br>");
@@ -30,8 +33,9 @@
         $("body").append("<img class ='mobile-image' src='images/9.png' width='900'><br>");
         $("body").append("<img class ='mobile-image' src='images/boat.jpg' width='900'><br>");
 
-
-
+        $(".container").click(function(){
+          $(".box").removeClass("visible");
+        });
 
 
      } else {
@@ -245,6 +249,7 @@
   cursor: pointer;
 }
 .container{
+  position: fixed;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -260,8 +265,7 @@
 </head>
 <body>
   <div class="container"></div>
-<div class="box ui-widget-content" id="draggable"><br><br><u>Brent Hildebrand</u><br><br><br>-Artist living and working in New York City<br>
-  -Cooper Union 2016<br><br><br>brnthildebrand@gmail.com<div id="x">X</div></div>
+  <div class="box"><br><br><u>Brent Hildebrand</u><br><br><br>Artist based in New York City<br><br>Cooper Union 2016<br><br><br>brnthildebrand@gmail.com<div id="x">X</div></div>
 <div id="q">?</div>
 </body>
 </html>
