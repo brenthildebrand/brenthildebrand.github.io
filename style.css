@@ -68,6 +68,12 @@ right: 5px;
 top: 5px;
 cursor: pointer;
 }
+#r{
+  position: fixed;
+  bottom: 12px;
+  left: 15px;
+  cursor: pointer;
+}
 .container{
 position: fixed;
 margin: 0;

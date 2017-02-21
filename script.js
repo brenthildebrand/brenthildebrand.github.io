@@ -30,9 +30,11 @@ $(document).ready(function(){
 
  } else {
 
+   var place = function(){
+
   var images = [{"link":"images/Cowboy1.jpg", "width":30, "height":21}, {"link":"images/Chair1.png", "linkon":"images/Chairon.png", "width":23, "height":34}, {"link":"images/4.jpg", "width":20, "height":22}, {"link":"images/5-2.jpg", "width":23, "height":28}, {"link":"images/mug1.png", "linkon":"images/mugon.png", "width":20, "height":20}, {"link":"images/7-2.jpg", "width":18, "height":22}, {"link":"images/6.jpg", "width": 20, "height":24}, {"link":"images/8.jpg", "width": 26, "height":23}, {"link":"images/Cowboy2.png", "linkon":"images/Cowboy2on.png", "width":20, "height":17}, {"link":"images/boat.jpg", "width":20, "height":26}, {"link":"images/9.png", "linkon":"images/9on.png", "width":20, "height":20}, {"link":"images/3.jpg", "width":23, "height":31}];
 
-  var size = ["93,130", "93,60"]
+  var size = ["93,130", "93,60"];
 
   for(var i = 0; i < images.length; i++){
     var currentRando = Math.floor((Math.random() * 7) + 1);
@@ -40,22 +42,18 @@ $(document).ready(function(){
     images[i].height = images[i].height * currentRando;
   }
 
-    for(var i = 0; i < images.length; i++){
+    $(".img").remove();
 
-    }
     $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[0].link + '); background-size: cover; width: ' + images[0].width +'px; height: '+ images[0].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"></div>');
 
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[1].linkon + '); background-size: cover; width: ' + images[1].width +'px; height: '+ images[1].height + 'px; top: '
-    + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[1].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
+    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[1].linkon + '); background-size: cover; width: ' + images[1].width +'px; height: '+ images[1].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[1].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
 
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[4].linkon + '); background-size: cover; width: ' + images[4].width +'px; height: '+ images[4].height + 'px; top: '
-    + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[4].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
+    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[4].linkon + '); background-size: cover; width: ' + images[4].width +'px; height: '+ images[4].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[4].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
 
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[10].linkon + '); background-size: cover; width: ' + images[10].width +'px; height: '+ images[10].height + 'px; top: '
-    + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[10].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
+    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[10].linkon + '); background-size: cover; width: ' + images[10].width +'px; height: '+ images[10].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[10].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
 
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[8].linkon + '); background-size: cover; width: ' + images[8].width +'px; height: '+ images[8].height + 'px; top: '
-    + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[8].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
+    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[8].linkon + '); background-size: cover; width: ' + images[8].width +'px; height: '+ images[8].height + 'px; top: ' +
+     (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[8].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
 
     $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[2].link + '); background-size: cover; width: ' + images[2].width +'px; height: '+ images[2].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
     $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[3].link + '); background-size: cover; width: ' + images[3].width +'px; height: '+ images[3].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
@@ -64,6 +62,8 @@ $(document).ready(function(){
     $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[7].link + '); background-size: cover; width: ' + images[7].width +'px; height: '+ images[7].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
     $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[9].link + '); background-size: cover; width: ' + images[9].width +'px; height: '+ images[9].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
     $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[11].link + '); background-size: cover; width: ' + images[11].width +'px; height: '+ images[11].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
+
+
 /////////////
 var color = ["purple", "orange", "red", "violet", "green", "blue"];
 currentColor = 0;
@@ -126,11 +126,16 @@ aspectRatio: true
 
 }
 });
+
+};
+
+place();
+
 }
 
 $(".img").click(function(){
   $(".box").removeClass("visible");
-})
+});
 
 $("#q").click(function(){
   $(".box").addClass("visible");
@@ -138,6 +143,11 @@ $("#q").click(function(){
 
 $("#x").click(function(){
 $(".box").removeClass("visible");
+});
+
+$("body").on("click", "#r", function(){
+  place();
+  console.log("hello");
 });
 
 
