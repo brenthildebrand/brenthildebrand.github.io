@@ -44,24 +44,9 @@ $(document).ready(function(){
 
     $(".img").remove();
 
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[0].link + '); background-size: cover; width: ' + images[0].width +'px; height: '+ images[0].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"></div>');
-
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[1].linkon + '); background-size: cover; width: ' + images[1].width +'px; height: '+ images[1].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[1].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
-
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[4].linkon + '); background-size: cover; width: ' + images[4].width +'px; height: '+ images[4].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[4].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
-
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[10].linkon + '); background-size: cover; width: ' + images[10].width +'px; height: '+ images[10].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[10].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
-
-    $("body").append('<div class="img ui-widget-content png" id="draggable resizable" style="background-image: url(' + images[8].linkon + '); background-size: cover; width: ' + images[8].width +'px; height: '+ images[8].height + 'px; top: ' +
-     (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"><div class="pngtop" style="background-image: url(' + images[8].link + '); background-size: cover;width: 100%; height: 100%"></div></div>');
-
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[2].link + '); background-size: cover; width: ' + images[2].width +'px; height: '+ images[2].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[3].link + '); background-size: cover; width: ' + images[3].width +'px; height: '+ images[3].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[5].link + '); background-size: cover; width: ' + images[5].width +'px; height: '+ images[5].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[6].link + '); background-size: cover; width: ' + images[6].width +'px; height: '+ images[6].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[7].link + '); background-size: cover; width: ' + images[7].width +'px; height: '+ images[7].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[9].link + '); background-size: cover; width: ' + images[9].width +'px; height: '+ images[9].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
-    $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[11].link + '); background-size: cover; width: ' + images[11].width +'px; height: '+ images[11].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw"></div>');
+    for(var j = 0; j < images.length; j++){
+          $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[j].link + '); background-size: cover; width: ' + images[j].width +'px; height: '+ images[j].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"></div>');
+    }
 
 
 /////////////
@@ -71,8 +56,6 @@ currentColor = 0;
 $(function() {
   $( ".img" ).draggable({ containment: "#containment-wrapper", scroll: false });
 });
-
-$(".png").addClass("inactive-png");
 
 $(".container").click(function(){
   $(".active").resizable("disable");
@@ -85,7 +68,7 @@ $(".container").click(function(){
 });
 
 
-$(".img").click(function(){
+$(".img").on("mousedown", function(){
   if (!$(this).hasClass("active")) {
 
   if(currentColor < color.length -1 ){
@@ -97,30 +80,17 @@ $(".img").click(function(){
   $(".active").resizable("disable");
   $(".active-png").resizable("disable");
   $(".img").removeClass("active");
-  $(".img").css("box-shadow", "0px 0px .5rem 2px transparent");
-  $(".png").addClass("inactive-png");
-  $(".png").removeClass("active-png");
-  if($(this).hasClass("png")){
-    $(this).appendTo("body");
-    $(this).addClass("active-png");
-    $(this).removeClass("inactive-png");
-  } else {
-  $(this).css("box-shadow", "0px 0px .5rem 2px " + color[currentColor]);
+  $(".img").css("filter", "none");
+
+  $(this).css("filter", "drop-shadow(0px 0px 4px " + color[currentColor] + ")");
   $(this).addClass("active");
   $(this).appendTo("body");
-}
+
 
   $(function() {
 $( ".active" ).resizable({
   disabled: false,
   aspectRatio: true
-});
-});
-
-$(function() {
-$( ".active-png" ).resizable({
-disabled: false,
-aspectRatio: true
 });
 });
 
