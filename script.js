@@ -1,5 +1,47 @@
 $(document).ready(function(){
 
+//firebase views
+{
+var config = {
+  apiKey: "AIzaSyCUBJczlRwsIBVS14yCIpoB-mNg4KyEBLI",
+  authDomain: "https://views-b5935.firebaseio.com/",
+  databaseURL: "https://views-b5935.firebaseio.com/",
+  storageBucket: "bucket.appspot.com"
+};
+
+var views;
+var d;
+
+firebase.initializeApp(config);
+
+var ref = firebase.database().ref();
+
+ref.on("value", function(snapshot) {
+   d = snapshot.val();
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
+setTimeout(function(){
+
+  console.log(d);
+
+  views = d.sites.brenthildebrand;
+
+  views ++;
+
+  var writeRef = firebase.database().ref("sites");
+
+  writeRef.update({
+    "brenthildebrand" : views,
+  });
+
+
+}, 1000);
+}
+
+//start
+
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     //$(".container").remove();
     $("#q").css({"width":"100%","text-align":"center","font-size":"40px", "position":"absolute","margin-top":"20px"});
