@@ -1,80 +1,8 @@
 $(document).ready(function(){
 
-//firebase views
-{
-var config = {
-  apiKey: "AIzaSyCUBJczlRwsIBVS14yCIpoB-mNg4KyEBLI",
-  authDomain: "https://views-b5935.firebaseio.com/",
-  databaseURL: "https://views-b5935.firebaseio.com/",
-  storageBucket: "bucket.appspot.com"
-};
 
-var views;
-var d;
-
-firebase.initializeApp(config);
-
-var ref = firebase.database().ref();
-
-ref.on("value", function(snapshot) {
-   d = snapshot.val();
-}, function (error) {
-   console.log("Error: " + error.code);
-});
-
-setTimeout(function(){
-
-  console.log(d);
-
-  views = d.sites.brenthildebrand;
-
-  views ++;
-
-  var writeRef = firebase.database().ref("sites");
-
-  writeRef.update({
-    "brenthildebrand" : views,
-  });
-
-
-}, 1000);
-}
-
-//start
-
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    //$(".container").remove();
-    $("#q").css({"width":"100%","text-align":"center","font-size":"40px", "position":"absolute","margin-top":"20px"});
-    $(".box").css({"width":"60%","margin-left":"0","font-size":"40px", "position":"absolute", "height":"45%", "left":"10%","margin-top":"20px","padding":"10%"});
-    $("#x").css({"right":"40px", "top":"40px"});
-    $("body").append("<img class ='mobile-image' src='images/4.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/Cowboy1.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/Chair1.png' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/5.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/mug1.png' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/7.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/6.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/8.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/Cowboy2.png' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/9.png' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/boat.jpg' width='900'><br>");
-    $("body").append("<img class ='mobile-image' src='images/3.jpg' width='900'><br>");
-
-
-    $(".container").click(function(){
-      $(".box").removeClass("visible");
-    });
-
-    $(".mobile-image").click(function(){
-      $(".box").removeClass("visible");
-    });
-
-
- } else {
-
-   var place = function(){
-
-  var images = [{"link":"images/Cowboy1.jpg", "width":30, "height":21}, {"link":"images/Chair1.png", "linkon":"images/Chairon.png", "width":23, "height":34}, {"link":"images/4.jpg", "width":20, "height":22}, {"link":"images/5-2.jpg", "width":23, "height":28}, {"link":"images/mug1.png", "linkon":"images/mugon.png", "width":20, "height":20}, {"link":"images/7-2.jpg", "width":18, "height":22}, {"link":"images/6.jpg", "width": 20, "height":24}, {"link":"images/8.jpg", "width": 26, "height":23}, {"link":"images/Cowboy2.png", "linkon":"images/Cowboy2on.png", "width":20, "height":17}, {"link":"images/boat.jpg", "width":20, "height":26}, {"link":"images/9.png", "linkon":"images/9on.png", "width":20, "height":20}, {"link":"images/3.jpg", "width":23, "height":31}];
+  //randomizes position and size of paintings
+  var place = function place(){
 
   var size = ["93,130", "93,60"];
 
@@ -141,6 +69,23 @@ $( ".active" ).resizable({
 
 };
 
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+
+    for(var j = 0; j < images.length; j++){
+      $("body").append("<img class ='mobile-image' src='" + images[j].link + "' width='600'>");
+    }
+
+    $(".container").click(function(){
+      $(".box").removeClass("visible");
+    });
+
+    $(".mobile-image").click(function(){
+      $(".box").removeClass("visible");
+    });
+
+
+ } else {
+
 place();
 
 }
@@ -159,7 +104,6 @@ $(".box").removeClass("visible");
 
 $("body").on("click", "#r", function(){
   place();
-  console.log("hello");
 });
 
 
