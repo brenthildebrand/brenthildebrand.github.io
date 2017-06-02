@@ -106,9 +106,9 @@ cursor: pointer;
   img{
     max-width: 100%;
   }
-  body{
+  /*body{
     width: 100vw;
-  }
+  }*/
 }
 .container{
 position: fixed;
