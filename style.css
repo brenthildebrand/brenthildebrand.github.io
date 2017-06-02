@@ -103,6 +103,12 @@ cursor: pointer;
   right: 30px;
   top: 30px;
   }
+  img{
+    max-width: 100%;
+  }
+  body{
+    width: 100vw;
+  }
 }
 .container{
 position: fixed;
