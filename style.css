@@ -93,7 +93,10 @@ cursor: pointer;
     font-size: 30px;
     padding: 200px 0 0 50px;
     background-color: purple;
-    color: white;
+    color: yellow;
+  }
+  u{
+   text-decoration: none;
   }
   #x{
   position: fixed;
