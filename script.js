@@ -74,7 +74,7 @@ $( ".active" ).resizable({
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
     for(var j = 0; j < images.length; j++){
-      $("body").append("<img class ='mobile-image' src='" + images[j].link + "' width='300'>");
+      $("body").append("<img class ='mobile-image' src='" + images[j].link + "' width='600'>");
     }
 
     $(".container").click(function(){
