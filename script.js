@@ -69,6 +69,8 @@ $( ".active" ).resizable({
 
 };
 
+//
+
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
     for(var j = 0; j < images.length; j++){
