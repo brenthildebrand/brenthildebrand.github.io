@@ -4,8 +4,8 @@ originalImageWidths = [];
 
 for(var i = 0; i< images.length; i++) {
   var cur = {};
-  cur.width = images[i].width * currentRando;
-  cur.height = images[i].height * currentRando;
+  cur.width = images[i].width;
+  cur.height = images[i].height;
 
   originalImageWidths.push(cur);
 }
@@ -18,7 +18,7 @@ for(var i = 0; i< images.length; i++) {
   for(var i = 0; i < images.length; i++){
     var currentRando = Math.floor((Math.random() * 7) + 1);
     images[i].width = originalImageWidths[i].width * currentRando;
-    originalImageWidths[i].height = images[i].height * currentRando;
+    images[i].height = originalImageWidths[i].height * currentRando;
   }
 
     $(".img").remove();
