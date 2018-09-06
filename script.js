@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+originalImageWidths = [];
+
+for(var i = 0; i< images.length; i++) {
+  var cur = {};
+  cur.width = images[i].width * currentRando;
+  cur.height = images[i].height * currentRando;
+
+  originalImageWidths.push(cur);
+}
 
   //randomizes position and size of paintings
   var place = function place(){
@@ -8,8 +17,8 @@ $(document).ready(function(){
 
   for(var i = 0; i < images.length; i++){
     var currentRando = Math.floor((Math.random() * 7) + 1);
-    images[i].width = images[i].width * currentRando;
-    images[i].height = images[i].height * currentRando;
+    images[i].width = originalImageWidths[i].width * currentRando;
+    originalImageWidths[i].height = images[i].height * currentRando;
   }
 
     $(".img").remove();
