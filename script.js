@@ -91,7 +91,7 @@ setTimeout(function() {  var currentImg = 0;
         }
           $("body").append("<div class='wrap'></div>");
           $("body").addClass("overflow-hidden");
-          $("body").append(`<div class="shop-view"><img class="shop-view-image" src="images/shop/${that["images"][0]}"><div class="shop-thumbnails"></div><div class="shop-view-info"><h2>${that["name"]}</h2><p>size: ${that["size"]}</p><p>materials: ${that["materials"]}</p><p>not available</p><p class="rule">Contact brent.e.hildebrand@gmail.com for any inquiries.</p></div><div class="exit"></div></div>`);
+          $("body").append(`<div class="shop-view"><img class="shop-view-image" src="images/shop/${that["images"][0]}"><div class="shop-thumbnails"></div><div class="shop-view-info"><h2>${that["name"]}</h2><p>size: ${that["size"]}</p><p>materials: ${that["materials"]}</p><p>not available</p><p class="rule">Contact brent.e.hildebrand@gmail.com for any inquiries.<br></br><a href="https://www.instagram.com/brent__hildebrand/">Instagram</a></p></div><div class="exit"></div></div>`);
           $(".shop-thumbnails").append(thumbnails);
 
           $(".exit").click(function(){
