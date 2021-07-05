@@ -1,121 +1,146 @@
 $(document).ready(function(){
+  $(".thumbnail-container").children("img").first().css({"outline": "1px solid khaki", "box-shadow": "1px 2px 6px khaki"});
+  var switchImage = function(that){
+    var big = $(".big")
 
-originalImageWidths = [];
-
-for(var i = 0; i< images.length; i++) {
-  var cur = {};
-  cur.width = images[i].width;
-  cur.height = images[i].height;
-
-  originalImageWidths.push(cur);
-}
-
-  //randomizes position and size of paintings
-  var place = function place(){
-
-  var size = ["93,130", "93,60"];
-
-  for(var i = 0; i < images.length; i++){
-    var currentRando = Math.floor((Math.random() * 7) + 1);
-    images[i].width = originalImageWidths[i].width * currentRando;
-    images[i].height = originalImageWidths[i].height * currentRando;
+    big.attr("src", $(that).attr("src"));
+    $(".thumbnail-container").children("img").css({"outline": "none", "box-shadow": "none"});
+    $(that).css({"outline": "1px solid khaki", "box-shadow": "1px 2px 6px khaki"});
   }
+  $(".thumbnail-container").children("img").click(function(){
+    switchImage(this);
+  });
 
-    $(".img").remove();
+  var currentImg = 0;
 
-    for(var j = 0; j < images.length; j++){
-          $("body").append('<div class="img ui-widget-content" id="draggable resizable" style="background-image: url(' + images[j].link + '); background-size: cover; width: ' + images[j].width +'px; height: '+ images[j].height + 'px; top: ' + (Math.floor((Math.random() * 70) + 10)) + 'vh; left: ' + (Math.floor((Math.random() * 80) + 10)) + 'vw;"></div>');
+  var imgPositions = [];
+  $(".info--img").each(function(){
+    imgPositions.push(this.offsetLeft);
+  });
+
+
+
+
+  $(".left-arrow").click(function(){
+    if(currentImg > 0) {
+      currentImg--;
+
+      $(".info--img-container").css({"margin-left":`-${imgPositions[currentImg]}px`});
     }
 
 
-/////////////
-var color = ["purple", "orange", "red", "violet", "green", "blue"];
-currentColor = 0;
-
-$(function() {
-  $( ".img" ).draggable({ containment: "#containment-wrapper", scroll: false });
-});
-
-$(".container").click(function(){
-  $(".active").resizable("disable");
-  $(".active-png").resizable("disable");
-  $(".img").css("box-shadow", "0px 0px .5rem 2px transparent");
-  $(".img").removeClass("active");
-  $(".png").addClass("inactive-png");
-  $(".png").removeClass("active-png");
-  $(".box").removeClass("visible");
-});
-
-
-$(".img").on("mousedown", function(){
-  if (!$(this).hasClass("active")) {
-
-  if(currentColor < color.length -1 ){
-    currentColor = currentColor + 1;
-  } else {
-    currentColor = 0;
-  }
-
-  $(".active").resizable("disable");
-  $(".active-png").resizable("disable");
-  $(".img").removeClass("active");
-  $(".img").css("filter", "none");
-
-  $(this).css("filter", "drop-shadow(0px 0px 4px " + color[currentColor] + ")");
-  $(this).addClass("active");
-  $(this).appendTo("body");
-
-
-  $(function() {
-$( ".active" ).resizable({
-  disabled: false,
-  aspectRatio: true
-});
-});
-
-}
-});
-
-};
-
-//
-
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-
-    for(var j = 0; j < images.length; j++){
-      $("body").append("<img class ='mobile-image' src='" + images[j].link + "' width='600'>");
+    if(currentImg == 0) {
+      $(".left-arrow").addClass("arrow__inactive");
     }
 
-    $(".container").click(function(){
-      $(".box").removeClass("visible");
-    });
-
-    $(".mobile-image").click(function(){
-      $(".box").removeClass("visible");
-    });
+    $(".right-arrow").removeClass("arrow__inactive");
 
 
- } else {
 
-place();
+  });
 
-}
+  $(".right-arrow").click(function(){
+    if($(".info--img").length - 1 > currentImg) {
+      currentImg++;
+      // console.log($(".info--img")[currentImg].getBoundingClientRect());
+      // var newPos = $(".info--img")[currentImg].getBoundingClientRect().left - 300;
+      // console.log(newPos);
 
-$(".img").click(function(){
-  $(".box").removeClass("visible");
-});
+      $(".info--img-container").css({"margin-left":`-${imgPositions[currentImg]}px`});
 
-$("#q").click(function(){
-  $(".box").addClass("visible");
-});
+    }
 
-$("#x").click(function(){
-$(".box").removeClass("visible");
-});
+    if(currentImg + 1 == $(".info--img").length) {
+      $(".right-arrow").addClass("arrow__inactive");
+    }
 
-$("body").on("click", "#r", function(){
-  place();
-});
+    $(".left-arrow").removeClass("arrow__inactive");
+  });
+
+  if(typeof shopItems !== "undefined") {
+    shopItems.forEach(function(that){
+      if(that["sold"] == true) {
+        let thing = $(".archive").append(`<div class="shop-item"><img src="images/shop/${that["images"][0]}"/><h4>${that["name"]}</h4></div>`);
+        // console.log($(".archive").children().last());
+        $(".archive").children().last().click(function(){
+          let thumbnails;
+          if(that["images"].length > 1) {
+
+          thumbnails = document.createElement("div");
+          for(let i = 0; i < that["images"].length; i++) {
+            let img = document.createElement("img");
+            img.setAttribute("src", `images/shop/${that["images"][i]}`);
+            thumbnails.appendChild(img);
+
+            $(img).on("click", function(){
+              $(".shop-view-image").attr("src", img.getAttribute("src"));
+              $(".shop-thumbnails div img").css({
+                "outline": "none",
+                "box-shadow": "none"
+              });
+              $(img).css({
+                "outline": "1px solid khaki",
+                "box-shadow": "1px 2px 6px khaki"
+              });
+            });
+          }
+        } else {
+          thumbnails = "";
+        }
+          $("body").append("<div class='wrap'></div>");
+          $("body").addClass("overflow-hidden");
+          $("body").append(`<div class="shop-view"><img class="shop-view-image" src="images/shop/${that["images"][0]}"><div class="shop-thumbnails"></div><div class="shop-view-info"><h2>${that["name"]}</h2><p>size: ${that["size"]}</p><p>materials: ${that["materials"]}</p><p>price: $${that["price"]}</p><p class="rule">Contact brent.e.hildebrand@gmail.com or message on <a href="https://www.instagram.com/brent__hildebrand/">Instagram</a> to purchase.</p></div><div class="exit"></div></div>`);
+          $(".shop-thumbnails").append(thumbnails);
+
+          $(".exit").click(function(){
+            $(this).parent().remove();
+            $("body").removeClass("overflow-hidden");
+            $(".wrap").remove();
+          });
+        });
+      } else {
+        $(".shop-container").append(`<div class="shop-item"><img src="images/shop/${that["name"].replace(" ", "")}.jpg"/><h4>${that["name"]}</h4></div>`);
+        $(".shop-container").children().last().click(function(){
 
 
+          let thumbnails;
+          if(that["images"].length > 1) {
+
+          thumbnails = document.createElement("div");
+          for(let i = 0; i < that["images"].length; i++) {
+            let img = document.createElement("img");
+
+            img.setAttribute("src", `images/shop/${that["images"][i]}`);
+            thumbnails.appendChild(img);
+
+            $(img).on("click", function(){
+              $(".shop-view-image").attr("src", img.getAttribute("src"))
+              $(".shop-thumbnails div img").css({
+                "outline": "none",
+                "box-shadow": "none"
+              });
+              $(img).css({
+                "outline": "1px solid khaki",
+                "box-shadow": "1px 2px 6px khaki"
+              });
+            });
+          }
+        } else {
+          thumbnails = "";
+        }
+
+          $("body").append("<div class='wrap'></div>");
+          $("body").addClass("overflow-hidden");
+          $("body").append(`<div class="shop-view"><img class="shop-view-image" src="images/shop/${that["images"][0]}"><div class="shop-thumbnails"></div><div class="shop-view-info"><h2>${that["name"]}</h2><p>size:${that["size"]}</p><p>materials: ${that["materials"]}</p><p>price: $${that["price"]}</p><p class="rule">Contact brent.e.hildebrand@gmail.com or message on <a href="https://www.instagram.com/brent__hildebrand/">Instagram</a> to purchase.</p></div><div class="exit"></div></div>`);
+          $(".shop-thumbnails").append(thumbnails);
+
+          $(".exit").click(function(){
+            $(this).parent().remove();
+            $("body").removeClass("overflow-hidden");
+            $(".wrap").remove();
+          });
+        });
+      }
+    })
+  }
 });
