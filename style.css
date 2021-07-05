@@ -243,6 +243,10 @@ li {
   font-weight: 600;
 }
 
+.info {
+  max-width: 650px;
+}
+
 .info--img-container {
   height: 500px;
   overflow: visible;
