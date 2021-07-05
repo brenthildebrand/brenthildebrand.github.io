@@ -11,7 +11,9 @@ $(document).ready(function(){
     switchImage(this);
   });
 
-  var currentImg = 0;
+setTimeout(function() {  var currentImg = 0;
+
+
 
   var imgPositions = [];
   $(".info--img").each(function(){
@@ -55,7 +57,7 @@ $(document).ready(function(){
     }
 
     $(".left-arrow").removeClass("arrow__inactive");
-  });
+  })}, 2000);
 
   if(typeof shopItems !== "undefined") {
     shopItems.forEach(function(that){
