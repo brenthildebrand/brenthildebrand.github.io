@@ -99,7 +99,7 @@ p {
   box-sizing: border-box;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
 
   .nav{
     position: relative;
@@ -206,7 +206,7 @@ li {
   padding-top: 13px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .piece .big {
     width: 100%;
   }
@@ -310,7 +310,7 @@ li {
   box-shadow: none !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .info--img-container {
     height: 275px;
   }
@@ -353,7 +353,7 @@ li {
   height: 250px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
 
   .shop-item {
     margin-right: 0;
@@ -482,7 +482,7 @@ li {
   background: khaki !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
 
   .shop-view {
     top: 0;
@@ -526,6 +526,10 @@ li {
     height: 70px;
     margin: 0;
     margin-right: 10px;
+  }
+
+  .rule {
+    padding-bottom: 20px;
   }
 }
 
