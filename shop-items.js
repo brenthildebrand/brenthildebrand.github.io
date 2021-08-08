@@ -15,7 +15,7 @@ var shopItems = [
     "sold": false
   }, {
     "name": "bowl 12",
-    "images": ["bowl12a.jpg", "bowl12b.jpg"],
+    "images": ["bowl12.jpg", "bowl12b.jpg"],
     "size": "4.25in x 4.25in x 2.5in",
     "materials": "ambrosia maple, cherry, milk paint",
     "price": 45,
