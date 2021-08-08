@@ -1,5 +1,26 @@
 var shopItems = [
   {
+    "name": "bowl 10",
+    "images": ["bowl10.jpg"],
+    "size": "6.5in x 6.5in x 3.5in",
+    "materials": "cherry, brass, milk paint",
+    "price": 85,
+    "sold": false
+  }, {
+    "name": "bowl 11",
+    "images": ["bowl11.jpg"],
+    "size": "4.25in x 4.25in x 3in",
+    "materials": "cherry, milk paint",
+    "price": 45,
+    "sold": false
+  }, {
+    "name": "bowl 12",
+    "images": ["bowl12a.jpg", "bowl12b.jpg"],
+    "size": "4.25in x 4.25in x 2.5in",
+    "materials": "ambrosia maple, cherry, milk paint",
+    "price": 45,
+    "sold": false
+  }, {
     "name": "bowl 7",
     "images": ["bowl7.jpg", "bowl7a.jpg"],
     "size": "4.5in x 8in x 2in",
