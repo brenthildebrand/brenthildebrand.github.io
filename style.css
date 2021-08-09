@@ -253,6 +253,7 @@ li {
   width: auto;
   white-space: nowrap;
   transition: margin-left 1s;
+  touch-action: none;
 }
 
 .info--img {

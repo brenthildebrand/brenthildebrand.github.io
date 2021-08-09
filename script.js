@@ -11,7 +11,9 @@ $(document).ready(function(){
     switchImage(this);
   });
 
-setTimeout(function() {  var currentImg = 0;
+setTimeout(function() {
+
+ var currentImg = 0;
 
 
 
@@ -21,27 +23,29 @@ setTimeout(function() {  var currentImg = 0;
   });
 
 
+var goingLeft = function(){
+  if(currentImg > 0) {
+    currentImg--;
+
+    $(".info--img-container").css({"margin-left":`-${imgPositions[currentImg]}px`});
+  }
 
 
-  $(".left-arrow").click(function(){
-    if(currentImg > 0) {
-      currentImg--;
+  if(currentImg == 0) {
+    $(".left-arrow").addClass("arrow__inactive");
+  }
 
-      $(".info--img-container").css({"margin-left":`-${imgPositions[currentImg]}px`});
-    }
-
-
-    if(currentImg == 0) {
-      $(".left-arrow").addClass("arrow__inactive");
-    }
-
-    $(".right-arrow").removeClass("arrow__inactive");
+  $(".right-arrow").removeClass("arrow__inactive");
 
 
 
-  });
+};
 
-  $(".right-arrow").click(function(){
+  $(".left-arrow").click(goingLeft);
+  $(".info--img-container").on("swiperight", goingLeft);
+
+
+  var goingRight = function(){
     if($(".info--img").length - 1 > currentImg) {
       currentImg++;
       // console.log($(".info--img")[currentImg].getBoundingClientRect());
@@ -57,7 +61,16 @@ setTimeout(function() {  var currentImg = 0;
     }
 
     $(".left-arrow").removeClass("arrow__inactive");
-  })}, 2000);
+  }
+
+  $(".right-arrow").on("click", goingRight);
+  $(".info--img-container").on("swipeleft", goingRight);
+
+}, 2000);
+
+// $(".info--img-container").on("swipeleft", function() {
+//   console.log('hello');
+// });
 
   if(typeof shopItems !== "undefined") {
     shopItems.forEach(function(that){
