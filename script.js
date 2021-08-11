@@ -11,6 +11,15 @@ $(document).ready(function(){
     switchImage(this);
   });
 
+//   $.mobile.loading( 'show', {
+// 	text: 'foo',
+// 	textVisible: false,
+// 	theme: 'z',
+// 	html: ""
+// });
+
+
+
 setTimeout(function() {
 
  var currentImg = 0;
@@ -42,7 +51,7 @@ var goingLeft = function(){
 };
 
   $(".left-arrow").click(goingLeft);
-  $(".info--img-container").on("swiperight", goingLeft);
+  // $(".info--img-container").on("swiperight", goingLeft);
 
 
   var goingRight = function(){
@@ -64,7 +73,7 @@ var goingLeft = function(){
   }
 
   $(".right-arrow").on("click", goingRight);
-  $(".info--img-container").on("swipeleft", goingRight);
+  // $(".info--img-container").on("swipeleft", goingRight);
 
 }, 2000);
 
