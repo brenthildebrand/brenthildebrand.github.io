@@ -12,7 +12,7 @@ var shopItems = [
     "size": "4.25in x 4.25in x 3in",
     "materials": "cherry, milk paint",
     "price": 45,
-    "sold": false
+    "sold": true
   }, {
     "name": "bowl 12",
     "images": ["bowl12.jpg", "bowl12b.jpg"],
