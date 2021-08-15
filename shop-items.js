@@ -5,7 +5,7 @@ var shopItems = [
     "size": "6.5in x 6.5in x 3.5in",
     "materials": "cherry, brass, milk paint",
     "price": 85,
-    "sold": false
+    "sold": true
   }, {
     "name": "bowl 11",
     "images": ["bowl11.jpg"],
@@ -19,7 +19,7 @@ var shopItems = [
     "size": "4.25in x 4.25in x 2.5in",
     "materials": "ambrosia maple, cherry, milk paint",
     "price": 45,
-    "sold": false
+    "sold": true
   }, {
     "name": "bowl 7",
     "images": ["bowl7.jpg", "bowl7a.jpg"],
