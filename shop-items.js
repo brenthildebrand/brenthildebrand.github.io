@@ -26,7 +26,7 @@ var shopItems = [
     "size": "4.5in x 8in x 2in",
     "materials": "pear, maple, milk paint",
     "price": 70,
-    "sold": false
+    "sold": true
   }, {
     "name": "bowl 1",
     "images": ["bowl1.jpg"],
